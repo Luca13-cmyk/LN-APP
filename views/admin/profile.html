@@ -1,0 +1,218 @@
+
+      <div class="content">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card card-user">
+              <form action="/profile/cap" enctype="multipart/form-data" method="post">
+                <a id="submit_cap_toggle" href="#">
+
+                  <div class="image">
+                    <img src="{$user.desphotocap}" alt="cap">
+                    
+                    <button id="editcap"><i class="nc-icon nc-palette"></i></button>
+                  </div>
+                </a>
+              <input style="display:none" type="file" id="cap" name="cap" role="button">
+              <input style="display:none" id="sendcap" type="submit" value="trocar">
+            </form>
+              <div class="card-body">
+                  <form action="/profile/avatar" enctype="multipart/form-data" method="post">
+                    <div class="author">
+                      <a id="submit_avatar_toggle" href="#">
+                        <img class="avatar border-gray" src="{$user.desphotoavatar}" alt="avatar">
+                        
+                        <h5 class="title">{$user.desperson}</h5>
+                        <button id="editavatar"><i class="nc-icon nc-palette"></i></button>
+                      </a>
+                      
+                      <input style="display:none" type="file" id="avatar" name="avatar" role="button">
+                      <input style="display:none" type="submit" id="sendavatar" value="trocar">
+                      
+                      <p class="description">
+                        {$user.desemail}
+                      </p>
+                    </div>
+                  </form>
+                </div>
+                
+              
+              <div class="card-footer">
+                <hr>
+                <div class="button-container">
+                  <div class="row">
+                    <div class="col-lg-3 col-md-6 col-6 ml-auto">
+                      <h5>Registro
+                        <br>
+                        <small>{function="dateRegister()"}</small>
+                      </h5>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header">
+                <h4 class="card-title">Dados</h4>
+              </div>
+              <div class="card-body">
+                <ul class="list-unstyled team-members">
+                  <li>
+                    <div class="row">
+                      <div class="col-md-2 col-2">
+                        <div class="avatar">
+                          <img src="{$user.desphotoavatar}" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+                        </div>
+                      </div>
+                      <div class="col-md-7 col-7">
+                        Senha
+                        <br />
+                        <span class="text-muted">
+                          <small>Alterar a senha</small>
+                        </span>
+                      </div>
+                      <div class="col-md-3 col-3 text-right">
+                        <a data-toggle="modal" data-target="#change_password"><btn class="btn btn-sm btn-outline-success btn-round btn-icon"><i class="fa fa-key"></i></btn></a>
+                      </div>
+                    </div>
+                  </li>
+                  <!-- <li>
+                    <div class="row">
+                      <div class="col-md-2 col-2">
+                        <div class="avatar">
+                          <img src="/res/admin/assets/img/faces/joe-gardner-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+                        </div>
+                      </div>
+                      <div class="col-md-7 col-7">
+                        Creative Tim
+                        <br />
+                        <span class="text-success">
+                          <small>Available</small>
+                        </span>
+                      </div>
+                      <div class="col-md-3 col-3 text-right">
+                        <btn class="btn btn-sm btn-outline-success btn-round btn-icon"><i class="fa fa-envelope"></i></btn>
+                      </div>
+                    </div>
+                  </li> -->
+                  <!-- <li>
+                    <div class="row">
+                      <div class="col-md-2 col-2">
+                        <div class="avatar">
+                          <img src="/res/admin/assets/img/faces/clem-onojeghuo-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+                        </div>
+                      </div>
+                      <div class="col-ms-7 col-7">
+                        Flume
+                        <br />
+                        <span class="text-danger">
+                          <small>Busy</small>
+                        </span>
+                      </div>
+                      <div class="col-md-3 col-3 text-right">
+                        <btn class="btn btn-sm btn-outline-success btn-round btn-icon"><i class="fa fa-envelope"></i></btn>
+                      </div>
+                    </div>
+                  </li> -->
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="card card-user">
+              <div class="card-header">
+                <h5 class="card-title">Editar dados do perfil</h5>
+              </div>
+              <div class="card-body">
+                <form>
+                  <div class="row">
+                    
+                    <div class="col-md-5 pr-1">
+                      <div class="form-group">
+                        <label>E-mail/Username</label>
+                        <input type="text" class="form-control" placeholder="Username/E-mail" value="{$user.desemail}">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 pr-1">
+                      <div class="form-group">
+                        <label>Nome</label>
+                        <input type="text" class="form-control" placeholder="Company" value="{$user.desperson}">
+                      </div>
+                    </div>
+                    
+                  </div>
+                  
+                  <div class="row">
+                    <div class="col-md-4 pr-1">
+                      <div class="form-group">
+                        <label>Telefone</label>
+                        <input type="text" class="form-control" placeholder="Telefone" value="{$user.nrphone}">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="update ml-auto mr-auto">
+                      <button type="submit" class="btn btn-primary btn-round">Atualizar perfil</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modals  -->
+      <form action="/profile/change-password" method="post">
+        <div class="modal fade" id="change_password" tabindex="-1" role="dialog" aria-labelledby="change_password" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">Alterar a senha</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                   <!-- Inputs -->
+                  <div class="row">
+                
+                      <div class="col-md-5 pr-1">
+                        <div class="form-group">
+                          <label>Senha Atual</label>
+                          <input type="password" name="current_pass"  id="current_pass" class="form-control" placeholder=".....">
+                        </div>
+                      </div>
+                    </div> 
+  
+                    <div class="row">
+                    
+                      <div class="col-md-5 pr-1">
+                        <div class="form-group">
+                          <label>Nova Senha</label>
+                          <input type="password" name="new_pass"  id="new_pass" class="form-control" placeholder="....">
+                        </div>
+                      </div>
+                    </div> 
+                    <div class="row">
+              
+                      <div class="col-md-5 pr-1">
+                        <div class="form-group">
+                          <label>Confirme a Nova Senha</label>
+                          <input type="password" name="new_pass_confirm"  id="new_pass_confirm" class="form-control" placeholder="....">
+                        </div>
+                      </div>
+                    </div> 
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-primary">Salvar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+      </form>
+
+      

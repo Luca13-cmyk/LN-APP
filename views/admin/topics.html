@@ -1,0 +1,193 @@
+<div class="content">
+    <div class="row">
+      
+            <div class="container">
+                <nav aria-label="breadcrumb" role="navigation">
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item active" aria-current="page">Tópicos mais Curtidos</li>
+                      
+                    </ol>
+                  </nav>
+               
+            </div>
+        
+    </div>
+
+    
+    <div data-content_topics class="row">
+            
+        <div class="container">
+            <br><br><br>
+            <div class="col-sm-12">
+                <div data-slider-aba-topics data-customers-testimonials class="owl-carousel">
+                    {loop="$recommendeds"}
+                    <div class="item" title="{$value.desrecommended}">
+                        <button data-toggle="tooltip" data-placement="bottom" title="Adicionar aos favoritos" id="add_fav_slider_topic"><i class="nc-icon nc-bookmark-2"></i></button>
+                          <div class="shadow-effect">
+                              <img src="{$value.descap}"  alt="cap">
+                              
+                          </div>
+                          <a href="{$value.deslink}">
+                              <div class="testimonial-name">
+                                Recomendado
+                              </div>
+                          </a>
+  
+                      </div>
+                      {/loop}
+                      
+                </div>
+            </div>
+        </div>
+      
+  
+                        
+      </div>
+    <div class="row">
+      
+        <div class="container">
+            <nav aria-label="breadcrumb" role="navigation">
+                <ol class="breadcrumb">
+
+                  <li class="breadcrumb-item active"  aria-current="page">5 Mais curtidos</li>
+                  
+                </ol>
+              </nav>
+           
+            </div>
+    </div>
+    <div data-content_topics class="row">
+            
+        <div class="container">
+            <br><br><br>
+            <div class="col-sm-12">
+                <div data-slider-aba-topics data-customers-testimonials class="owl-carousel">
+                    {loop="$recommendeds"}
+                    <div class="item" title="{$value.desrecommended}">
+                        <button data-toggle="tooltip" data-placement="bottom" title="Adicionar aos favoritos" id="add_fav_slider_topic"><i class="nc-icon nc-bookmark-2"></i></button>
+                          <div class="shadow-effect">
+                              <img src="{$value.descap}"  alt="cap">
+                              
+                          </div>
+                          <a href="{$value.deslink}">
+                              <div class="testimonial-name">
+                                Recomendado
+                              </div>
+                          </a>
+  
+                      </div>
+                      {/loop}
+                      
+                </div>
+            </div>
+        </div>
+      
+  
+                        
+      </div>
+      <div class="row">
+      
+          <div class="container">
+              <nav aria-label="breadcrumb" role="navigation">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item active" style="margin: auto;" aria-current="page">
+                      <form id="ajaxAZsubmit">
+                        <div class="input-group">
+                          <div id="icon_filter_per" class="input-group-prepend">
+                              <div class="input-group-text"><i class="nc-icon nc-bullet-list-67"></i></div>
+                            </div>
+                            <input type="text" id="valueAJAXAZ" class="form-control" name="l"  placeholder="A - Z...">
+                            <button style="margin-left: 5px;" type="submit"  class="btn btn-outline-primary btn-round btn-sm">
+                                <i class="nc-icon nc-zoom-split"></i> 
+                              </button>
+                          </div>
+                      </form>
+                        
+                    </li>
+                  </ol>
+                </nav>
+             
+              </div>
+      </div>
+      
+
+        
+
+   <div class="row">
+     <!-- <div class="container">
+        <div class="col-sm-12">
+            <div class="card card-nav-tabs" style="width: 20rem; margin: auto;">
+                <div class="card-header card-header-danger">
+                  A - Z
+                  <hr>
+                </div>
+                <ul id="ajaxAZ" class="list-group list-group-flush">
+                    <div id="statusAZ">
+                        <small>Nada foi encontrado.</small>
+                      </div>
+                </ul>
+              </div>
+        </div>
+     </div> -->
+     <div class="col-md-12">
+
+       <div class="card">
+
+          
+  
+         <div id="topicsAZAJAXcontent"  class="container my-5">
+    
+    
+            <!--Section: Content-->
+            <section class="team-section text-center dark-grey-text">
+          
+              <!-- Section heading -->
+              <h3 class="font-weight-bold pb-2 mb-4">A - Z</h3>
+              <!-- Section description -->
+              <p class="text-muted w-responsive mx-auto mb-5">
+                <div id="statusAZ">
+                    
+                </div>
+              </p>
+              <div class="ytp-spinner" data-layer="4" style="display: none;">
+                  <div class="ytp-spinner-container">
+                    <div class="ytp-spinner-rotator">
+                      <div class="ytp-spinner-left">
+                        <div class="ytp-spinner-circle">
+                          
+                        </div>
+                      </div>
+                      <div class="ytp-spinner-right">
+                        <div class="ytp-spinner-circle">
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ytp-spinner-message" style="display: none;">
+                  
+                  </div>
+                </div>
+          
+              <div id="ajaxAZ" class="row text-center text-md-left">
+                
+                  
+          
+                
+          
+              </div>
+              
+              
+          
+            </section>
+            
+          
+          
+          </div>
+       </div>
+     </div>
+   </div>
+
+
+
+</div>
