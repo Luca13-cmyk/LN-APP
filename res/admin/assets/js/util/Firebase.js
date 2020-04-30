@@ -48,9 +48,9 @@ class Firebase
     {
         return new Promise((s, f)=>{
 
-            if (sessionStorage.login)
+            if (localStorage.login)
             {
-                let data = JSON.parse(sessionStorage.login);
+                let data = JSON.parse(localStorage.login);
                 let token = data.credential.accessToken;
                 let user = data.user;
 
@@ -65,14 +65,18 @@ class Firebase
             firebase.auth().signInWithPopup(provider)
             .then(result=>{
 
-                sessionStorage.login = JSON.stringify(result);
+                if (result.credential)
+                {
 
-                let token = result.credential.accessToken;
-                let user = result.user;
-
-                s({
-                    user, token
-                });
+                    localStorage.login = JSON.stringify(result);
+                    
+                    let token = result.credential.accessToken;
+                    let user = result.user;
+                    
+                    s({
+                        user, token
+                    });
+                }
 
             })
             .catch(err => {

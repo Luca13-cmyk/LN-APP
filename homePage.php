@@ -9,12 +9,18 @@ use \Hcode\Model\User;
 
 $app->get('/', function (Request $request, Response $response, $args) {
 
-    $page = new Page();
-    $page->setTpl("index");
-    return $response;
+    header("Location: /login");
+    exit;
+    
 });
 
 $app->get('/login', function (Request $request, Response $response, $args) {
+
+    if (User::checkLogin())
+    {
+        header("Location: /dashboard");
+        exit;
+    }
 
     $page = new Page([
         "header"=>false,

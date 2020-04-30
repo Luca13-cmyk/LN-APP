@@ -171,7 +171,7 @@ class User extends Model {
 				User::logout();
 				if ($inadmin)
 				{
-					header("Location: /admin/login");
+					header("Location: /login");
 				}
 				header("Location: /login");
 	
@@ -181,7 +181,7 @@ class User extends Model {
 		if (!User::checkLogin($inadmin)) {
 			if ($inadmin)
 			{
-				header("Location: /admin/login");
+				header("Location: /login");
 			}
 			else 
 			{

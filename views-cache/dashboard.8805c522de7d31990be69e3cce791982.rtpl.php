@@ -18,8 +18,8 @@
                   </div>
                   <div class="col-7 col-md-8">
                     <div class="numbers">
-                      <p class="card-category">Capacity</p>
-                      <p class="card-title">150GB
+                      <p class="card-category">Arquivos</p>
+                      <p id="files-qntd-chart" class="card-title">0
                         <p>
                     </div>
                   </div>
@@ -70,8 +70,9 @@
                   </div>
                   <div class="col-7 col-md-8">
                     <div class="numbers">
-                      <p class="card-category">Errors</p>
-                      <p class="card-title">23
+                      <p class="card-category">Usuarios</p>
+                      <p id="users-qntd-chart" class="card-title"><?php echo htmlspecialchars( $users_qntd, ENT_COMPAT, 'UTF-8', FALSE ); ?>
+
                         <p>
                     </div>
                   </div>
@@ -80,7 +81,7 @@
               <div class="card-footer ">
                 <hr>
                 <div class="stats">
-                  <i class="fa fa-clock-o"></i> In the last hour
+                  <i class="fa fa-clock-o"></i> Atualmente
                 </div>
               </div>
             </div>
@@ -91,13 +92,13 @@
                 <div class="row">
                   <div class="col-5 col-md-4">
                     <div class="icon-big text-center icon-warning">
-                      <i class="nc-icon nc-favourite-28 text-primary"></i>
+                      <i class="nc-icon nc-single-copy-04 text-primary"></i>
                     </div>
                   </div>
                   <div class="col-7 col-md-8">
                     <div class="numbers">
-                      <p class="card-category">Followers</p>
-                      <p class="card-title">+45K
+                      <p class="card-category">Posts</p>
+                      <p id="posts-qnt-chart" class="card-title">0
                         <p>
                     </div>
                   </div>
@@ -105,8 +106,10 @@
               </div>
               <div class="card-footer ">
                 <hr>
-                <div class="stats">
-                  <i class="fa fa-refresh"></i> Update now
+                <div class="stats" id="posts">
+                  <button type="button" class="btn btn-primary btn-round" data-toggle="modal" data-target="#newPost">
+                    <i class="nc-icon nc-simple-add"></i>Novo Post
+                  </button>
                 </div>
               </div>
             </div>
@@ -149,47 +152,59 @@
           <div class="col-md-4">
             <div class="card ">
               <div class="card-header ">
-                <h5 class="card-title">Email Statistics</h5>
-                <p class="card-category">Last Campaign Performance</p>
+                <h5 class="card-title">Estatisticas</h5>
+                <p class="card-category">Ultimos dados.</p>
               </div>
               <div class="card-body ">
                 <canvas id="chartEmail"></canvas>
               </div>
               <div class="card-footer ">
                 <div class="legend">
-                  <i class="fa fa-circle text-primary"></i> Opened
-                  <i class="fa fa-circle text-warning"></i> Read
-                  <i class="fa fa-circle text-danger"></i> Deleted
-                  <i class="fa fa-circle text-gray"></i> Unopened
+                  <i class="fa fa-circle text-primary"></i> Arquivos
+                  <i class="fa fa-circle text-warning"></i> Usuarios
+                  <!-- <i class="fa fa-circle text-danger"></i> Deleted -->
+                  <i class="fa fa-circle text-gray"></i> Posts
                 </div>
                 <hr>
                 <div class="stats">
-                  <i class="fa fa-calendar"></i> Number of emails sent
+                  <i class="fa fa-calendar"></i> Ao longo do tempo
                 </div>
               </div>
             </div>
           </div>
           <div class="col-md-8">
-            <div class="card card-chart">
-              <div class="card-header">
-                <h5 class="card-title">NASDAQ: AAPL</h5>
-                <p class="card-category">Line Chart with Points</p>
-              </div>
-              <div class="card-body">
-                <canvas id="speedChart" width="400" height="100"></canvas>
-              </div>
-              <div class="card-footer">
-                <div class="chart-legend">
-                  <i class="fa fa-circle text-info"></i> Tesla Model S
-                  <i class="fa fa-circle text-warning"></i> BMW 5 Series
-                </div>
-                <hr/>
-                <div class="card-stats">
-                  <i class="fa fa-check"></i> Data information certified
-                </div>
-              </div>
+            <div class="card">
+              
             </div>
           </div>
         </div>
+        
+      <!-- Modal Post -->
+      <div class="modal fade" id="newPost" tabindex="-1" role="dialog" aria-hidden="false">
+          <div class="modal-dialog modal-register">
+              <div class="modal-content">
+                <form id="submit-post" action="/new-post" method="post">
+                  <div class="modal-body">
+                      <div class="form-group">
+                          <label>Sistema</label>
+                      <input required type="text" name="system" placeholder="Linux..." class="form-control" />
+                    </div>
+                    <div class="form-group">
+                          <label>Assunto</label>
+                      <input required type="text" name="subject" placeholder="Assunto..." class="form-control" />
+                    </div>
+                    <div class="form-group">
+                      <label for="text">Texto</label>
+                      <textarea required class="form-control" id="text" name="text" rows="3"></textarea>
+                    </div>
+                      <button type="submit"  class="btn btn-block btn-round">Enviar</button>
+                  </div>
+                  <div class="modal-footer no-border-footer">
+                      <!-- <span class="text-muted  text-center"><a href="#"></a> ?</span> -->
+                  </div>
+                </form>
+              </div>
+          </div>
+      </div>
       </div>
       

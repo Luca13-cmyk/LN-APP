@@ -37,23 +37,28 @@
 <!-- Chart JS -->
 <script src="/res/admin/assets/js/plugins/chartjs.min.js"></script>
 <!--  Notifications Plugin    -->
-<script src="/res/admin/assets/js/plugins/bootstrap-notify.js"></script>
+<!-- <script src="/res/admin/assets/js/plugins/bootstrap-notify.js"></script> -->
 <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
 <script src="/res/admin/assets/js/paper-dashboard.min.js?v=2.0.0" type="text/javascript"></script>
 <!-- Paper Dashboard DEMO methods, don't include it in your project! -->
 <script src="/res/admin/assets/demo/demo.js"></script>
 
 <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-app.js"></script>
+<!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
 
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-analytics.js"></script>
+<!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-analytics.js"></script>
+
+<!-- Add Firebase products that you want to use -->
+<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
 
 <script src="/res/admin/assets/js/util/Firebase.js"></script>
 <script src="/res/admin/assets/js/util/Utils.js"></script>
 <script src="/res/admin/assets/js/util/Format.js"></script>
 <script src="/res/admin/assets/js/util/ClassEvent.js"></script>
+<script src="/res/admin/assets/js/util/HttpRequestJquery.js"></script>
 <script src="/res/admin/assets/js/controller/LnApp.js"></script>
 <script src="/res/admin/assets/js/app.js"></script>
 <script>

@@ -61,10 +61,10 @@ LN-APP
               <p>Dashboard</p>
             </a>
           </li>
-          <li class='<?php echo getCurrentHost("/fav"); ?>'>
-            <a href="/fav">
-              <i class="nc-icon nc-bookmark-2"></i>
-              <p>Favoritos</p>
+          <li class='<?php echo getCurrentHost("/files"); ?>'>
+            <a href="/files">
+              <i class="nc-icon nc-layout-11"></i>
+              <p>Arquivos</p>
             </a>
           </li>
           <li class='<?php echo getCurrentHost("/topics"); ?>'>
@@ -154,7 +154,7 @@ LN-APP
                 </div>
               </li>
               <li class="nav-item">
-                <a data-settings_per="show" class="nav-link btn-rotate" href="#pablo">
+                <a data-settings_per="show" id="config-sidebar" class="nav-link btn-rotate" href="#pablo">
                   <i class="nc-icon nc-settings-gear-65"></i>
                   <p>
                     <span class="d-lg-none d-md-block">Account</span>
@@ -168,7 +168,7 @@ LN-APP
       <!-- End Navbar  ss-->
 
       <!-- Config -->
-      <div class="offset-area-per">
+      <div class="offset-area-per" id="offset-area-per-toggle">
           <div class="offset-close"><i class="nc-icon nc-simple-remove"></i></div>
           <ul class="nav offset-menu-tab">
               <li><a class="" data-toggle="tab" href="#activity">Atalhos</a></li>

@@ -8,18 +8,27 @@ class LnApp
 
         this.loadElements();
         this.firebaseAuth();
+        this.loadEvents();
+        this.elementsPrototype();
     }
 
     firebaseAuth()
     {
         this._firebase.initAuth().then(response => {
 
-            console.log(response);
+            this.el.profileAvatarFirebase.src = response.user.photoURL;
 
         });
 
     }
-
+    firebaseOut()
+    {
+        this._firebase.auth().signOut().then(function() {
+            console.log("deslogado");
+          }).catch(function(error) {
+            // An error happened.
+          });
+    }
     loadElements()
     {
         this.el = {};
@@ -28,6 +37,31 @@ class LnApp
 
             this.el[Format.getCamelCase(element.id)] = element;
 
+        });
+    }
+
+    loadEvents()
+    {
+        let data = {};
+
+        this.el.submitPost.addEventListener("submit", e=>{
+
+            e.preventDefault();
+            var formData = this.el.submitPost.getForm();
+
+            let system = formData.get("system");
+            let subject = formData.get("subject");
+            let text = formData.get("text");
+            
+            new HttpRequestJquery("post", "/new-post", {system, subject, text}).then(r=>{
+                console.log(r);
+            }).catch((r)=> {console.error(r)});
+            
+
+        });
+
+        this.el.configSidebar.addEventListener("click", e=>{
+            this.el.offsetAreaPerToggle.classList.toggle("show_hide");
         });
     }
 

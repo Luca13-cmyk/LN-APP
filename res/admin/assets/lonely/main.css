@@ -253,6 +253,12 @@ div[data-avatar-card-topic] .z-depth-1
     text-align: center;
 }
 
+
+#posts
+{
+    cursor: pointer;
+}
+
 /* ###################### DARK MODE ################################ */
 
 

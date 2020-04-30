@@ -16,16 +16,55 @@ $app->get('/dashboard', function (Request $request, Response $response, $args) {
 
 	$data = insertVisits();
 
-	// print_r($data);
+	$users = User::listAll();
 
-    $page = new PageAdmin();
+	$page = new PageAdmin();
+	
 	$page->setTpl("dashboard", [
-		"months_qntd"=>$data
+		"months_qntd"=>$data,
+		"users_qntd"=>count($users)
 	]);
 
 	return $response;
 
 });
+
+$app->get('/files', function (Request $request, Response $response, $args) {
+
+	User::verifyLogin();
+
+	// $page = new PageAdmin();
+	
+	// $page->setTpl("dashboard", [
+	// 	"months_qntd"=>$data
+	// ]);
+
+	return $response;
+
+});
+
+$app->get('/logout', function (Request $request, Response $response, $args) {
+
+	
+
+	User::logout();
+	header("Location: /login");
+	exit;
+
+});
+
+$app->post('/new-post', function (Request $request, Response $response, $args) {
+
+	User::verifyLogin();
+
+	echo $_POST['system'];
+	echo $_POST['subject'];
+	echo $_POST['text'];
+	
+	return $response;
+
+});
+
 
 // $app->get('/admin/login', function() {
 //     $page = new PageAdmin([
@@ -52,13 +91,7 @@ $app->get('/dashboard', function (Request $request, Response $response, $args) {
 //    exit;
 	
 // });
-// $app->get('/admin/logout', function() {
 
-// 	User::logout();
-// 	header("Location: /admin/login");
-// 	exit;
-
-// });
 
 
 
