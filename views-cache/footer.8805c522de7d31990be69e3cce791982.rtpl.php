@@ -54,6 +54,7 @@
 <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
 
+<script src="/res/admin/assets/js/util/moment-with-locales.js"></script>
 <script src="/res/admin/assets/js/util/Firebase.js"></script>
 <script src="/res/admin/assets/js/util/Utils.js"></script>
 <script src="/res/admin/assets/js/util/Format.js"></script>

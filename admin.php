@@ -16,6 +16,7 @@ $app->get('/dashboard', function (Request $request, Response $response, $args) {
 
 	$data = insertVisits();
 
+
 	$users = User::listAll();
 
 	$page = new PageAdmin();
@@ -24,6 +25,22 @@ $app->get('/dashboard', function (Request $request, Response $response, $args) {
 		"months_qntd"=>$data,
 		"users_qntd"=>count($users)
 	]);
+
+	return $response;
+
+});
+
+
+$app->get('/indices', function (Request $request, Response $response, $args) {
+
+	User::verifyLogin();
+
+
+	$users = User::listAll();
+
+	$page = new PageAdmin();
+	
+	$page->setTpl("indices");
 
 	return $response;
 

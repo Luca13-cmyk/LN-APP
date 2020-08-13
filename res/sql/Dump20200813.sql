@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.19, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.21, for Linux (x86_64)
 --
--- Host: 127.0.0.1    Database: db_ln
+-- Host: 127.0.0.1    Database: lnapp
 -- ------------------------------------------------------
--- Server version	8.0.19-0ubuntu0.19.10.3
+-- Server version	8.0.21-0ubuntu0.20.04.4
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -16,20 +16,6 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `tb_calen`
---
-
-DROP TABLE IF EXISTS `tb_calen`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tb_calen` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `month` varchar(256) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Dumping data for table `tb_calen`
 --
 
@@ -38,23 +24,6 @@ LOCK TABLES `tb_calen` WRITE;
 INSERT INTO `tb_calen` VALUES (1,'Jan'),(2,'Feb'),(3,'Mar'),(4,'Apr'),(5,'May'),(6,'Jun'),(7,'Jul'),(8,'Aug'),(9,'Sep'),(10,'Oct'),(11,'Nov'),(12,'Dec');
 /*!40000 ALTER TABLE `tb_calen` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `tb_persons`
---
-
-DROP TABLE IF EXISTS `tb_persons`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tb_persons` (
-  `idperson` int NOT NULL AUTO_INCREMENT,
-  `desperson` varchar(64) NOT NULL,
-  `desemail` varchar(128) DEFAULT NULL,
-  `nrphone` bigint DEFAULT NULL,
-  `dtregister` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`idperson`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `tb_persons`
@@ -67,26 +36,6 @@ INSERT INTO `tb_persons` VALUES (11,'Luca Negrette','lucanegrette@hotmail.com',7
 UNLOCK TABLES;
 
 --
--- Table structure for table `tb_users`
---
-
-DROP TABLE IF EXISTS `tb_users`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tb_users` (
-  `iduser` int NOT NULL AUTO_INCREMENT,
-  `idperson` int NOT NULL,
-  `deslogin` varchar(64) NOT NULL,
-  `despassword` varchar(256) NOT NULL,
-  `inadmin` tinyint NOT NULL DEFAULT '0',
-  `dtregister` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`iduser`),
-  KEY `FK_users_persons_idx` (`idperson`),
-  CONSTRAINT `fk_users_persons` FOREIGN KEY (`idperson`) REFERENCES `tb_persons` (`idperson`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Dumping data for table `tb_users`
 --
 
@@ -95,25 +44,6 @@ LOCK TABLES `tb_users` WRITE;
 INSERT INTO `tb_users` VALUES (11,11,'luca13-cmyk','$2y$12$rKaQ/xZ.Lrz7/J6CKRkzsOc8UfXhbSjbZmm.rWbTgpHm1fW3.VLnu',1,'2020-02-26 17:25:15');
 /*!40000 ALTER TABLE `tb_users` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `tb_userspasswordsrecoveries`
---
-
-DROP TABLE IF EXISTS `tb_userspasswordsrecoveries`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tb_userspasswordsrecoveries` (
-  `idrecovery` int NOT NULL AUTO_INCREMENT,
-  `iduser` int NOT NULL,
-  `desip` varchar(45) NOT NULL,
-  `dtrecovery` datetime DEFAULT NULL,
-  `dtregister` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`idrecovery`),
-  KEY `fk_userspasswordsrecoveries_users_idx` (`iduser`),
-  CONSTRAINT `fk_userspasswordsrecoveries_users` FOREIGN KEY (`iduser`) REFERENCES `tb_users` (`iduser`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `tb_userspasswordsrecoveries`
@@ -125,46 +55,29 @@ LOCK TABLES `tb_userspasswordsrecoveries` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `tb_visits`
---
-
-DROP TABLE IF EXISTS `tb_visits`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tb_visits` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `id_calen` int NOT NULL,
-  `qntd` varchar(256) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `id_calen` (`id_calen`),
-  CONSTRAINT `tb_visits_ibfk_1` FOREIGN KEY (`id_calen`) REFERENCES `tb_calen` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Dumping data for table `tb_visits`
 --
 
 LOCK TABLES `tb_visits` WRITE;
 /*!40000 ALTER TABLE `tb_visits` DISABLE KEYS */;
-INSERT INTO `tb_visits` VALUES (1,4,'389'),(2,1,'1'),(3,2,'1'),(4,3,'1'),(5,5,'1'),(6,6,'1'),(7,7,'1'),(8,8,'1'),(9,9,'1'),(10,10,'1'),(11,11,'1'),(12,12,'1');
+INSERT INTO `tb_visits` VALUES (1,4,'390'),(2,1,'1'),(3,2,'1'),(4,3,'1'),(5,5,'1'),(6,6,'1'),(7,7,'106'),(8,8,'1'),(9,9,'1'),(10,10,'1'),(11,11,'1'),(12,12,'1');
 /*!40000 ALTER TABLE `tb_visits` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Dumping routines for database 'db_ln'
+-- Dumping routines for database 'lnapp'
 --
 /*!50003 DROP PROCEDURE IF EXISTS `sp_userspasswordsrecoveries_create` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
 DELIMITER ;;
-CREATE DEFINER=`luca17-cmyk`@`%` PROCEDURE `sp_userspasswordsrecoveries_create`(
+CREATE DEFINER=`luca13cmyk`@`localhost` PROCEDURE `sp_userspasswordsrecoveries_create`(
 piduser INT,
 pdesip VARCHAR(45)
 )
@@ -186,13 +99,13 @@ DELIMITER ;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
 DELIMITER ;;
-CREATE DEFINER=`luca17-cmyk`@`%` PROCEDURE `sp_usersupdate_save`(
+CREATE DEFINER=`luca13cmyk`@`localhost` PROCEDURE `sp_usersupdate_save`(
 piduser INT,
 pdesperson VARCHAR(64), 
 pdeslogin VARCHAR(64), 
@@ -235,13 +148,13 @@ DELIMITER ;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
 DELIMITER ;;
-CREATE DEFINER=`luca17-cmyk`@`%` PROCEDURE `sp_users_save`(
+CREATE DEFINER=`luca13cmyk`@`localhost` PROCEDURE `sp_users_save`(
 pdesperson VARCHAR(64), 
 pdeslogin VARCHAR(64), 
 pdespassword VARCHAR(256), 
@@ -273,13 +186,13 @@ DELIMITER ;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
 DELIMITER ;;
-CREATE DEFINER=`luca17-cmyk`@`%` PROCEDURE `sp_visits`(
+CREATE DEFINER=`luca13cmyk`@`localhost` PROCEDURE `sp_visits`(
 pid_calen int, 
 pqntd int
 )
@@ -316,4 +229,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-04-29 23:55:38
+-- Dump completed on 2020-08-13 18:15:32

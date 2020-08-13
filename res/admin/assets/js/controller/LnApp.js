@@ -5,11 +5,21 @@ class LnApp
     {
         this._firebase = new Firebase();
         this._format = new Format();
+        
 
         this.loadElements();
         this.firebaseAuth();
         this.loadEvents();
         this.elementsPrototype();
+        this.moment();
+
+    }
+    moment()
+    {
+        moment.locale("pt-BR");
+        document.querySelector("p[data-time]").innerHTML = 
+        `Atualizado: ${moment().format('DD [de] MMMM [de] YYYY, h:mm:ss')}`;
+
     }
 
     firebaseAuth()
@@ -26,7 +36,7 @@ class LnApp
         this._firebase.auth().signOut().then(function() {
             console.log("deslogado");
           }).catch(function(error) {
-            // An error happened.
+            console.log("errro");
           });
     }
     loadElements()
@@ -63,6 +73,7 @@ class LnApp
         this.el.configSidebar.addEventListener("click", e=>{
             this.el.offsetAreaPerToggle.classList.toggle("show_hide");
         });
+
     }
 
     elementsPrototype()

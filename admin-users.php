@@ -82,7 +82,6 @@ $app->get('/admin/users', function() {
 		"pages"=>$values["pages"]
 	));
 	
-	
 });
 
 $app->get('/admin/users/create', function() {

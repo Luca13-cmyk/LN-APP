@@ -67,30 +67,30 @@ LN-APP
               <p>Arquivos</p>
             </a>
           </li>
-          <li class='<?php echo getCurrentHost("/topics"); ?>'>
+          <!-- <li class='<?php echo getCurrentHost("/topics"); ?>'>
             <a href="/topics">
               <i class="nc-icon nc-diamond"></i>
               <p>Topicos</p>
             </a>
-          </li>
-          <li class='<?php echo getCurrentHost("/ig"); ?>'>
-            <a href="/ig">
+          </li> -->
+          <li class='<?php echo getCurrentHost("/indices"); ?>'>
+            <a href="/indices">
               <i class="nc-icon nc-book-bookmark"></i>
-              <p>Indices / Guias</p>
+              <p>Indices</p>
             </a>
           </li>
-          <li class='<?php echo getCurrentHost("/about"); ?>'>
+          <!-- <li class='<?php echo getCurrentHost("/about"); ?>'>
             <a href="/about">
               <i class="nc-icon nc-layout-11"></i>
               <p>Sobre o DS Club</p>
             </a>
-          </li>
-          <li class='<?php echo getCurrentHost("/contact"); ?>'>
+          </li> -->
+          <!-- <li class='<?php echo getCurrentHost("/contact"); ?>'>
             <a href="/contact">
               <i class="nc-icon nc-tile-56"></i>
               <p>Contato</p>
             </a>
-          </li>
+          </li> -->
           <li class='active-pro'>
             <a href="/logout">
               <i class="nc-icon nc-button-power"></i>

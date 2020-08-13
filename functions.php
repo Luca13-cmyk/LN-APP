@@ -128,7 +128,8 @@ use \Hcode\DB\Sql;
 		$values = [
 			"pagination"=>$pagination["data"],
 			"search"=>$search,
-			"pages"=>$pages
+            "pages"=>$pages,
+            "total"=>$pagination["total"]
 		];
 		return $values;
 
